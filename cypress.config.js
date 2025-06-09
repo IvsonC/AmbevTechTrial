@@ -3,6 +3,7 @@ const { defineConfig } = require("cypress");
 module.exports = defineConfig({
   e2e: {
     baseUrl: "https://front.serverest.dev/",
+    baseApiUrl: "https://serverest.dev/",
     viewportWidth: 1280,
     viewportHeight: 720,
     defaultCommandTimeout: 10000,
@@ -21,6 +22,8 @@ module.exports = defineConfig({
     env: {
       grepFilterSpecs: true,
       grepOmitFiltered: true,
+      requestMode: 'true',
+      snapshotOnly: true,
     },
     specPattern: "cypress/e2e/**/*.cy.{js,jsx,ts,tsx}",
     supportFile: "cypress/support/e2e.js",
