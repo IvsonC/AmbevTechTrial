@@ -5,12 +5,11 @@ class LoginPage extends BasePage {
     super();
     this.url = '/login';
     this.selectors = {
-      emailInput: '[data-testid="email-input"]',
-      passwordInput: '[data-testid="password-input"]',
-      loginButton: '[data-testid="login-button"]',
-      errorMessage: '[data-testid="error-message"]',
-      forgotPasswordLink: '[data-testid="forgot-password-link"]',
-      signUpLink: '[data-testid="signup-link"]'
+      emailInput: '[data-testid="email"]',
+      passwordInput: '[data-testid="senha"]',
+      loginButton: '[data-testid="entrar"]',
+      errorMessage: '[xpath="(//div[@role="alert"])[1]"]',
+      signUpLink: '[data-testid="cadastrar"]'
     };
   }
 
