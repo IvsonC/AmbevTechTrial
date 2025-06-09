@@ -18,7 +18,7 @@ This project contains end-to-end (E2E) tests for the Ambev Tech Trial applicatio
 
 1. Clone the repository:
 ```bash
-git clone [your-repository-url]
+git clone https://github.com/IvsonC/AmbevTechTrial
 cd ambevtechtrial
 ```
 
