@@ -8,8 +8,12 @@ class LoginPage extends BasePage {
       emailInput: '[data-testid="email"]',
       passwordInput: '[data-testid="senha"]',
       loginButton: '[data-testid="entrar"]',
-      errorMessage: '[xpath="(//div[@role="alert"])[1]"]',
-      signUpLink: '[data-testid="cadastrar"]'
+      errorMessage: '.alert',
+      signUpLink: '[data-testid="cadastrar"]',
+      nameInput: '[data-testid="nome"]',
+      emailInput: '[data-testid="email"]',
+      passwordInputSignUp: '[data-testid="password"]',
+      signUpButton: '[data-testid="cadastrar"]',
     };
   }
 
@@ -35,6 +39,19 @@ class LoginPage extends BasePage {
 
   verifyErrorMessage(message) {
     this.verifyText(this.selectors.errorMessage, message);
+    return this;
+  }
+
+  clickSignUpLink() {
+    this.clickElement(this.selectors.signUpLink);
+    return this;
+  }
+
+  registerUser(name, email, password) {
+    this.typeText(this.selectors.nameInput, name);
+    this.typeText(this.selectors.emailInput, email);
+    this.typeText(this.selectors.passwordInputSignUp, password);
+    this.clickElement(this.selectors.signUpButton);
     return this;
   }
 

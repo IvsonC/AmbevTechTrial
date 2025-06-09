@@ -45,15 +45,16 @@ Cypress.Commands.add('loginWithUI', (email, password) => {
     });
   });
   
-  Cypress.Commands.add('generateTestData', () => {
-    const { faker } = require('@faker-js/faker');
-    return {
-      email: faker.internet.email(),
-      password: faker.internet.password(),
-      firstName: faker.person.firstName(),
-      lastName: faker.person.lastName(),
-      address: faker.location.streetAddress(),
-      city: faker.location.city(),
-      zipCode: faker.location.zipCode()
-    };
-  });
+  import { faker } from '@faker-js/faker';
+
+Cypress.Commands.add('generateTestData', () => {
+  return {
+    email: faker.internet.email(),
+    password: faker.internet.password(),
+    firstName: faker.person.firstName(),
+    lastName: faker.person.lastName(),
+    address: faker.location.streetAddress(),
+    city: faker.location.city(),
+    zipCode: faker.location.zipCode()
+  };
+});

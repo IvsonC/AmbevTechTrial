@@ -1,10 +1,11 @@
 import LoginPage from '../../../pages/login/LoginPage';
-import DashboardPage from '../../../pages/home/HomePage';
+import HomePage from '../../../pages/home/HomePage';
 import { TestData } from '../../../support/data/test-data';
+import { faker } from '@faker-js/faker';
 
 describe('Login Tests', { tags: ['@login'] }, () => {
   const loginPage = new LoginPage();
-  const dashboardPage = new DashboardPage();
+  const homePage = new HomePage();
 
   beforeEach(() => {
     cy.fixture('users').as('users');
@@ -15,20 +16,29 @@ describe('Login Tests', { tags: ['@login'] }, () => {
       .visitLoginPage()
       .login(this.users.validUser.email, this.users.validUser.password);
     
-    dashboardPage.verifyDashboardLoaded();
+    homePage.verifyHomeElements();
   });
 
-  it('Should show error message with invalid credentials', { tags: ['@negative'] }, function() {
+  it('Should show error message with invalid credentials then register', { tags: ['@negative'] }, function() {
+    const testData = {
+      firstName: faker.person.firstName(),
+      email: faker.internet.email(),
+      password: faker.internet.password()
+    };
+
     loginPage
       .visitLoginPage()
       .login(this.users.invalidUser.email, this.users.invalidUser.password)
-      .verifyErrorMessage('Invalid credentials');
+      .verifyErrorMessage('Email e/ou senha inválidos');
+    loginPage.clickSignUpLink();
+    loginPage.registerUser(testData.firstName, testData.email, testData.password);
+    homePage.verifyHomeElements();
   });
 
   it('Should validate empty form submission', { tags: ['@validation'] }, () => {
     loginPage
       .visitLoginPage()
       .clickLoginButton()
-      .verifyErrorMessage('Please fill in all fields');
+      .verifyErrorMessage('Email é obrigatório');
   });
 });

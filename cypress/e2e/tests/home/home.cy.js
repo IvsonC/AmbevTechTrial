@@ -18,6 +18,20 @@ describe('Home Tests', { tags: ['@home', '@smoke'] }, () => {
       .verifyHomeElements();
   });
 
+  it('Should search for a product and add to cart', { tags: ['@critical', '@ui'] }, () => {
+    homePage.searchForProduct('Awesome Plastic');
+    homePage.verifySearchResults();
+    homePage.addProductToList();
+    homePage.addToCart();
+  });
+
+  it('Should add product to list and clear list', { tags: ['@critical', '@ui'] }, () => {
+    homePage.searchForProduct('Awesome Plastic');
+    homePage.verifySearchResults();
+    homePage.addProductToList();
+    homePage.clearList();
+  });
+
   it('Should logout successfully', { tags: ['@logout'] }, () => {
     homePage.logout();
     cy.url().should('include', '/login');

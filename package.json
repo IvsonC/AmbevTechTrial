@@ -11,7 +11,6 @@
     "test:headless": "cypress run --headless --browser chrome",
     "test:headed": "cypress run --headed --browser chrome",
     "report:generate": "cypress run && npx mochawesome-merge cypress/reports/*.json > cypress/reports/report.json && npx marge cypress/reports/report.json --reportDir cypress/reports --assetsDir cypress/reports/assets --reportFilename index.html"
-
   },
   "keywords": [],
   "author": "Ivson Costa",
@@ -23,6 +22,7 @@
     "cypress": "^14.4.1",
     "cypress-mochawesome-reporter": "^3.8.2",
     "cypress-real-events": "^1.14.0",
+    "cypress-xpath": "^2.0.1",
     "mochawesome": "^7.1.3"
   }
 }
