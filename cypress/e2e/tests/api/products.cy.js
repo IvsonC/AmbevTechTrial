@@ -1,5 +1,5 @@
 const options = { env: { snapshotOnly: true } };
-describe("List Produtos", options, () => {
+describe("List Products", options, () => {
   /**
    * Test: List Products and Find Specific Product
    * This test:
@@ -8,7 +8,7 @@ describe("List Produtos", options, () => {
    * 3. Searches for a specific product (Logitech MX)
    * 4. Verifies the product exists and contains the expected name
    */
-  it("Should list produtos", () => {
+  it("Should list products", () => {
     cy.apiListProdutos().then((response) => {
       expect(response.status).to.eq(200);
       const produtos = response.body.produtos.find(p => p.nome.includes('Logitech MX'));

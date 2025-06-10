@@ -46,7 +46,7 @@ describe('Home Tests', { tags: ['@home', '@smoke'] }, () => {
    * 4. Add product to cart
    */
   it('Should search for a product and add to cart', { tags: ['@critical', '@ui'] }, () => {
-    homePage.searchForProduct('Awesome Plastic');
+    homePage.searchForProduct('Awesome');
     homePage.verifySearchResults();
     homePage.addProductToList();
     homePage.addToCart();
@@ -61,7 +61,7 @@ describe('Home Tests', { tags: ['@home', '@smoke'] }, () => {
    * 3. Clear the shopping list
    */
   it('Should add product to list and clear list', { tags: ['@critical', '@ui'] }, () => {
-    homePage.searchForProduct('Awesome Plastic');
+    homePage.searchForProduct('Awesome');
     homePage.verifySearchResults();
     homePage.addProductToList();
     homePage.clearList();

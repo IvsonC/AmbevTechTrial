@@ -7,7 +7,7 @@
     "cy.run": "cypress run",
     "cy:run:chrome": "cypress run --browser chrome",
     "cy:run:firefox": "cypress run --browser firefox",
-    "test:login": "cypress run --env grep=\"@login\"",
+    "test:api": "cypress run --env grep=\"@api\"",
     "test:headless": "cypress run --headless --browser chrome",
     "test:headed": "cypress run --headed --browser chrome",
     "report:generate": "cypress run && npx mochawesome-merge cypress/reports/*.json > cypress/reports/report.json && npx marge cypress/reports/report.json --reportDir cypress/reports --assetsDir cypress/reports/assets --reportFilename index.html"

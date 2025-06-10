@@ -1,6 +1,6 @@
 import BasePage from '../base/BasePage';
 
-class DashboardPage extends BasePage {
+class HomePage extends BasePage {
     constructor() {
         super();
         this.url = '/home';
@@ -60,4 +60,4 @@ class DashboardPage extends BasePage {
     }
 }
 
-export default DashboardPage; 
+export default HomePage; 

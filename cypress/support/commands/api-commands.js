@@ -15,7 +15,7 @@ Cypress.Commands.add('apiAddUser', (testData, admin = 'false') => {
             nome: testData.firstName,
             email: testData.email,
             password: testData.password,
-            admin: admin
+            administrador: admin
         }
     });
 });
