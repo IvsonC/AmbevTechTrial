@@ -20,6 +20,12 @@ Cypress.Commands.add('apiAddUser', (testData, admin = 'false') => {
     });
 });
 
+Cypress.Commands.add('apiListProdutos', () => {
+    return cy.request({
+        method: 'GET',
+        url: `${Cypress.config('baseApiUrl')}produtos`,
+    });
+});
 
 Cypress.Commands.add('apiLogout', () => {
     return cy.request({
